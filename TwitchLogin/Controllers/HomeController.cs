@@ -10,7 +10,7 @@ namespace TwitchLogin.Controllers
     {
         public ActionResult Index()
         {
-            return View(new TwitchLogin.Models.LoginAuthentication());
+            return View(new Models.LoginAuthentication());
         }
 
         public ActionResult About()

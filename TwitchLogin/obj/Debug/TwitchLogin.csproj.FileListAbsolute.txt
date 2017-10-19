@@ -1,3 +1,4 @@
+E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.csproj.CoreCompileInputs.cache
 E:\Repos\TwitchLogin\TwitchLogin\bin\ApplicationInsights.config
 E:\Repos\TwitchLogin\TwitchLogin\bin\TwitchLogin.dll.config
 E:\Repos\TwitchLogin\TwitchLogin\bin\TwitchLogin.dll
@@ -36,7 +37,6 @@ E:\Repos\TwitchLogin\TwitchLogin\bin\Microsoft.AI.DependencyCollector.xml
 E:\Repos\TwitchLogin\TwitchLogin\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\Repos\TwitchLogin\TwitchLogin\bin\Microsoft.AI.WindowsServer.xml
 E:\Repos\TwitchLogin\TwitchLogin\bin\Microsoft.AI.Web.xml
-E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.csproj.CoreCompileInputs.cache
 E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.dll
 E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.pdb
 E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.csprojResolveAssemblyReference.cache

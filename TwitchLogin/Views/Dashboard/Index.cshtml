@@ -1,9 +1,12 @@
-﻿
+﻿@model TwitchLogin.Models.User
 @{
     ViewBag.Title = "Dashboard";
 }
 
-<h2>Dashboard</h2>
+<div class="jumbotron" style="text-align:center">
+    <h2>Dashboard</h2>
+    <p>Access Token: @Model.accessToken</p>
+    <p>Id Token: @Model.idToken</p>
+</div>
 
-<p>This is the dashboard where we are redirected after successfully being authenticated.</p>
 
