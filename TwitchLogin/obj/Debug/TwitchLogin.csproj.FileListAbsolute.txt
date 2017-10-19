@@ -39,3 +39,4 @@ E:\Repos\TwitchLogin\TwitchLogin\bin\Microsoft.AI.Web.xml
 E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.csproj.CoreCompileInputs.cache
 E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.dll
 E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.pdb
+E:\Repos\TwitchLogin\TwitchLogin\obj\Debug\TwitchLogin.csprojResolveAssemblyReference.cache
