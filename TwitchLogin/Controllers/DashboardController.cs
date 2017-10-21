@@ -10,21 +10,9 @@ namespace TwitchLogin.Controllers
     public class DashboardController : Controller
     {
         // GET: Dashboard
-        public ActionResult Index()
+        // TODO - This isn't correct
+        public ActionResult Index(string accessToken, string idToken, string scope, string type)
         {
-            // TODO - THIS IS NOT CORRECTLY GETTING THE FULL URL WITH QUERYSTRING
-            // Retrieves the current full url
-            var url = Request.Url.AbsoluteUri;
-
-            // Retrieves query string parameters
-            var queryString = HttpUtility.ParseQueryString(url);
-
-            // Retrieves access_token from query string
-            var accessToken = queryString["access_token"];
-
-            // Retrieves id_token from query string
-            var idToken = queryString["id_token"];
-
             // Object to store information on the user
             User user = new User(accessToken, idToken);
 
