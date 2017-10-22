@@ -20,7 +20,7 @@ namespace TwitchLogin.Models
          * */
         public LoginAuthentication()
         {
-            clientId = "PUT YOUR CLIENT ID HERE";
+            clientId = "CLIENT-ID-GOES-HERE";
             redirectUri = "http://localhost:56463/Dashboard/Index";
             urlAuthorize = "https://api.twitch.tv/kraken/oauth2/authorize";
             responseType = "token id_token";

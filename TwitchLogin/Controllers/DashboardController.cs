@@ -10,11 +10,15 @@ namespace TwitchLogin.Controllers
     public class DashboardController : Controller
     {
         // GET: Dashboard
-        // TODO - This isn't correct
-        public ActionResult Index(string accessToken, string idToken, string scope, string type)
+        /* *
+         * So, what's happening is that the query string parameters are actually fragments,
+         * denoted by '#' instead of '?'. I need to figure out a way to retrieve these 
+         * fragment parameters instead of what I thought were query string parameters.
+         * */
+        public ActionResult Index(string access_token, string id_token, string scope, string token_type)
         {
             // Object to store information on the user
-            User user = new User(accessToken, idToken);
+            User user = new User(access_token, id_token);
 
             return View(user);
         }
