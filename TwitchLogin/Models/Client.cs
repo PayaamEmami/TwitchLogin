@@ -23,7 +23,6 @@ namespace TwitchLogin.Models
         private static string responseType;
         private static string scope;
         // Client credentials retrieved from the Twitch API
-        public static string idToken { get; set; }
         public static string accessToken { get;  set; }
         // URL link that sends our user to Twitch to login
         public static string urlLogin { get; set; }
@@ -38,28 +37,22 @@ namespace TwitchLogin.Models
             clientId = "CLIENT-ID-GOES-HERE";
             clientSecret = "CLIENT-SECRET-GOES-HERE";
             redirectUri = "http://localhost:56463/Dashboard/Index";
-            urlClientCredentials = "https://api.twitch.tv/kraken/oauth2/token"
-                + "?client_id=" + clientId
-                + "&client_secret=" + clientSecret
-                + "&grant_type=" + "client_credentials"; ;
-            responseType = "token id_token";
             scope = "openid";
-
+            // Url for the user to log in via twitch
             urlLogin = "https://api.twitch.tv/kraken/oauth2/authorize"
                 + "?client_id=" + clientId
                 + "&redirect_uri=" + redirectUri
                 + "&response_type=" + HttpUtility.UrlEncode(responseType)
                 + "&scope=" + scope;
-
-            queryStringClientCredentials = new Dictionary<string, string>
-            {
-                { "client_id", clientId },
-                { "client_secert", clientSecret},
-                { "grant_type", "client_credentials" }
-            };
+            // Url for the request for client credentials (accessToken)
+            urlClientCredentials = "https://api.twitch.tv/kraken/oauth2/token"
+                + "?client_id=" + clientId
+                + "&client_secret=" + clientSecret
+                + "&grant_type=" + "client_credentials"; ;
+            responseType = "token id_token";
         }
         /* *
-         * Creates a request to retrive client credientials (accessToken and idToken)
+         * Creates a request to retrive client credientials (accessToken)
          * */
         public static void clientCredentialsRequest()
         {
