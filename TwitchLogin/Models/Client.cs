@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace TwitchLogin.Models
 {
@@ -16,7 +18,7 @@ namespace TwitchLogin.Models
         // URL link that is used for a request to retrieve client credentials
         private static string urlClientCredentials;
         // Query string that is used for a request to retrieve client credentials
-        private static string queryStringClientCredentials;
+        private static Dictionary<string, string> queryStringClientCredentials;
         // Additional parameters used for requests 
         private static string responseType;
         private static string scope;
@@ -29,14 +31,17 @@ namespace TwitchLogin.Models
         private static HttpClient client = new HttpClient();
 
         /* *
-         * Default Constructor: Creates urls required for requests made to the Twitch API
+         * Default Constructor: Creates variables and urls required for requests made to the Twitch API
          * */
         static Client()
         {
             clientId = "CLIENT-ID-GOES-HERE";
             clientSecret = "CLIENT-SECRET-GOES-HERE";
             redirectUri = "http://localhost:56463/Dashboard/Index";
-            urlClientCredentials = "https://api.twitch.tv/kraken/oauth2/token";
+            urlClientCredentials = "https://api.twitch.tv/kraken/oauth2/token"
+                + "?client_id=" + clientId
+                + "&client_secret=" + clientSecret
+                + "&grant_type=" + "client_credentials"; ;
             responseType = "token id_token";
             scope = "openid";
 
@@ -46,25 +51,35 @@ namespace TwitchLogin.Models
                 + "&response_type=" + HttpUtility.UrlEncode(responseType)
                 + "&scope=" + scope;
 
-            queryStringClientCredentials = "?client_id=" + clientId
-                + "&client_secret=" + clientSecret
-                + "&grant_type=" + "client_credentials";
+            queryStringClientCredentials = new Dictionary<string, string>
+            {
+                { "client_id", clientId },
+                { "client_secert", clientSecret},
+                { "grant_type", "client_credentials" }
+            };
         }
         /* *
          * Creates a request to retrive client credientials (accessToken and idToken)
          * */
         public static void clientCredentialsRequest()
         {
-            // Sends the request and retrieves the response
-            // TODO: This results in a bad request, we are getting closer :)
-            var response = client.PostAsync(urlClientCredentials, new StringContent(queryStringClientCredentials)).Result;
+            // Sends the request and retrieves the response, this API call requires all data be passed in query string, hence null body
+            var response = client.PostAsync(urlClientCredentials, null).Result;
 
             // If we have a success status code on our response
             if(response.IsSuccessStatusCode)
             {
+                // Retrieves the response into a variable
                 var responseContent = response.Content;
 
+                // Saves the JSON response as a string
                 string responseString = responseContent.ReadAsStringAsync().Result;
+
+                // Convert the JSON string into a JObject that is now accessible by key-value pairs
+                JObject jsonObject = JObject.Parse(responseString);
+
+                // Stores the access token to our client 
+                Client.accessToken = jsonObject["access_token"].ToString();
             }
         }
     }
