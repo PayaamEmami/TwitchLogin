@@ -72,7 +72,7 @@ namespace TwitchLogin.Models
                 JObject jsonObject = JObject.Parse(responseString);
 
                 // Stores the access token to our client 
-                Client.accessToken = jsonObject["access_token"].ToString();
+                accessToken = jsonObject["access_token"].ToString();
             }
         }
     }
