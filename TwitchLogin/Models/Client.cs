@@ -17,8 +17,6 @@ namespace TwitchLogin.Models
         private static string redirectUri;
         // URL link that is used for a request to retrieve client credentials
         private static string urlClientCredentials;
-        // Query string that is used for a request to retrieve client credentials
-        private static Dictionary<string, string> queryStringClientCredentials;
         // Additional parameters used for requests 
         private static string responseType;
         private static string scope;
