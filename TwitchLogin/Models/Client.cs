@@ -38,6 +38,7 @@ namespace TwitchLogin.Models
             clientSecret = "CLIENT-SECRET-GOES-HERE";
             redirectUri = "http://localhost:56463/Dashboard/Index";
             scope = "openid";
+            responseType = "token id_token";
             // Url for the user to log in via twitch
             urlLogin = "https://api.twitch.tv/kraken/oauth2/authorize"
                 + "?client_id=" + clientId
@@ -49,7 +50,6 @@ namespace TwitchLogin.Models
                 + "?client_id=" + clientId
                 + "&client_secret=" + clientSecret
                 + "&grant_type=" + "client_credentials"; ;
-            responseType = "token id_token";
         }
         /* *
          * Creates a request to retrive client credientials (accessToken)
