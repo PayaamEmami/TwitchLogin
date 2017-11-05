@@ -49,7 +49,7 @@ namespace TwitchLogin.Models
             urlClientCredentials = "https://api.twitch.tv/kraken/oauth2/token"
                 + "?client_id=" + clientId
                 + "&client_secret=" + clientSecret
-                + "&grant_type=" + "client_credentials"; ;
+                + "&grant_type=" + "client_credentials";
         }
         /* *
          * Creates a request to retrive client credientials (accessToken)
