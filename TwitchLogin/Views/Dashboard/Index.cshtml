@@ -1,5 +1,7 @@
 ﻿@{
     ViewBag.Title = "Dashboard";
+    // Uses the short term access code to request an access token
+    TwitchLogin.Models.Client.accessTokenRequest(Request.QueryString["code"].ToString());
 }
 
 <div class="jumbotron" style="text-align:center">

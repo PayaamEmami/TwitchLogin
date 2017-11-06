@@ -13,9 +13,6 @@ namespace TwitchLogin.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            // Sends request and receives response containing client information
-            Client.clientCredentialsRequest();
-
             return View();
         }
     }
