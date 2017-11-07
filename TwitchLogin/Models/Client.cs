@@ -58,7 +58,7 @@ namespace TwitchLogin.Models
         /* *
          * Creates a request to retrive client credientials (accessToken)
          * */
-        public static void accessTokenRequest(string shortTermAccessCode)
+        public static void AccessTokenRequest(string shortTermAccessCode)
         {
             // Adds the short term access code into the querystring parameters for the request
             urlAccessTokenRequest += "&code=" + shortTermAccessCode;
