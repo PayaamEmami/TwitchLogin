@@ -13,8 +13,7 @@ namespace TwitchLogin.Controllers
         // GET: Dashboard
         public ActionResult Index(string code)
         {
-            // Uses the short term access code to request an access token
-            Client.AccessTokenRequest(code);
+            TwitchClient.AccessTokenRequest(code);
 
             return View();
         }
